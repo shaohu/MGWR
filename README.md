@@ -9,7 +9,7 @@
 ### Benchmark 
 https://github.com/pysal/mgwr/
 - equal_interval() in search.py has bug. when running MGWR with .search(search_method="interval"), l_bound and u_bound is not correctly passed and get error TypeError: unsupported operand type(s) for +: 'NoneType' and 'int'
-- (?) In this package, bw = 100 means a local regression with 100 neighboring points including itself. In Pro GWR, bw = 101 means 100 neighboring points + 1. 
+- In this package, bw = 100 means a local regression with 100 neighboring points including itself. In Pro GWR, bw = 101 means 100 neighboring points + 1. 
 
 ### Reference for Trust Newton Algorithm
 Julia 
