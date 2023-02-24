@@ -1,0 +1,5 @@
+- sample data is stored at `..\data\`
+- `data.py` reads and formats sample data before executing mgwr. 
+- `main.py` runs multiple models (`gwr\mgwr` + `gaussian/bisquare` + `neighbor/distance` + `initialize by gwr or not`). you may need to update the some paths at the top of this script.
+- `test_mgwr_output.py` runs one mgwr model and prints diagnostics messages. you may need to update the some paths at the top of this script.
+- other scripts are outdated. 

@@ -1,0 +1,7 @@
+.*
+!/.gitignore
+mgwr/tests/*.csv
+mgwr/tests/*.txt
+__pycache__
+temp/
+mgwr/tests/sample_data
