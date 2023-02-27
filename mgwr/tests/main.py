@@ -15,11 +15,11 @@ if __name__ == '__main__':
     # test_output_dir = r"C:\temp"
     output_file = os.path.join(test_output_dir, r"main"+ str(np.random.random()) +".csv")
 
-    x, y, coords, data_path = get_georgia_data(nx=2)
+    x, y, coords, data_path = get_perlin_data_set_0_n_1000_k_10(nx=11)
     for mode_ in ["mgwr"]:
-        for neighbor_type_ in ["neighbor", "distance"]:
-            for kernel_type_ in ["gaussian", "bisquare"]:
-                for gwr_init_ in [False, True]:
+        for neighbor_type_ in ["neighbor"]: #["neighbor", "distance"]
+            for kernel_type_ in ["bisquare"]: #["gaussian", "bisquare"]
+                for gwr_init_ in [True]: #[False, True]
 
                     if mode_ == "gwr" and gwr_init_ == True:
                         continue
@@ -28,9 +28,9 @@ if __name__ == '__main__':
                               mode=mode_, disp=True, gwr_init=gwr_init_, data_path=data_path,
                               scale_coordinate=True)
 
-                    md.newton(hess=False)
-                    md.scipy_optimize(method="L-BFGS-B")
-                    md.scipy_optimize(method="TNC")
+                    # md.newton(hess=False)
+                    # md.scipy_optimize(method="L-BFGS-B")
+                    # md.scipy_optimize(method="TNC")
                     md.scipy_optimize(method="trust-constr")
 
                     # these two function no longer work after using numba
