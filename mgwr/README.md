@@ -1,7 +1,4 @@
-### Note
-- refer to [mgwr_esri/README.md](mgwr_esri/README.md) for setup. 
-
-### Structure 
+### Code Structure 
 - ``mgwr.py`` includes the MGWR class. 
   - ``scipy_optimize()`` is the leading function. 
   - A few functions are unique for gradient-MGWR: 
@@ -21,4 +18,4 @@
 - ``kernels.py`` holds the algorithm to compute kernels. 
   - we need to develop this because they includes some gradient derivation. 
   - we have four kernel types here (distance/neighbor + guassian/bisquare). part of gradient are derived here, based on the chain rule. 
-- ignore other scripts ``mgwr_esri/gradients_func_ij.py``, ``mgwr_esri/gradients_multi.py``, ``optimize.py``.
+- ignore other scripts ``mgwr/gradients_func_ij.py``, ``mgwr/gradients_multi.py``, ``optimize.py``.
