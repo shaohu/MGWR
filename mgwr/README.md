@@ -6,8 +6,7 @@
     - ``reverse_scaling_distance()`` is the opposite process, to provide meaning distance (with unit) after optimization. 
     - ``dist_nb_smoothing()`` builds projection between number of neighbors and distance. the key idea is introduced in the paper. some of the relevant codes are in ``kernels.py``. 
   - Some functions do not have to be strictly followed:
-    - this includes ``set_up(), call_back(), set_bound(), set_start(), careate_output_table(), summary_excel(), result_store()``. we can use existing code in MGWR class in ArcGIS Pro. 
-    - e.g. ``set_start()`` obtains the starting bandwidth using gradient-GWR, but we can use our existing GWR model in ArcGIS Pro. 
+    - this includes ``set_up(), call_back(), set_bound(), set_start(), careate_output_table(), summary_excel(), result_store()``.
   - Other functions are no longer used. 
     - ``newton.py()`` does not use scipy module but the optimization performance is bad. 
     - ``pysal_exec()`` calls pysal library. but MGWR in pysal is not parallel so we don't use it anymore. 
