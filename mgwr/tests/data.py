@@ -8,6 +8,40 @@ import os
 
 data_dir = os.path.join(os.path.dirname(os.path.dirname(__file__)), "data")
 
+def get_perlin_data_set_0_n_1000_k_10(nx=11):
+    """
+       :param nx, number of x variables, including intercept
+       :return: a test data, both x and y are centered, has intercept column
+       """
+
+    depVarName = 'Y_new'
+    indVarNames = ['X0','X1', 'X2', 'X3', 'X4', 'X5', 'X6', 'X7', 'X8', 'X9']
+
+    if nx-1 > len(indVarNames):
+        nx = len(indVarNames) + 1
+    if nx < 2:
+        nx = 2
+
+    data_path = os.path.join(data_dir, "perlin_data_set_0_n_1000_k_10.csv") # you can choose other size of the synthetic data. Eg. perlin_data_set_0_n_40000_k_10.csv
+    df = pd.read_csv(data_path)
+
+    indVarNames = indVarNames[:(nx-1)]
+
+    n = df.shape[0]
+    k = len(indVarNames)
+
+    y = df[depVarName].values.reshape((-1,1))
+    x = NUM.ones((n, k+1), dtype=float)
+
+    for column, variable in enumerate(indVarNames):
+        x[:, column + 1] = df[[variable]].values.flatten()
+
+    coords = list(zip(df['x_coord_earth'], df['y_coord_earth']))
+    coords = NUM.asarray(coords)
+    y = (y - y.mean(axis=0)) / y.std(axis=0)
+    x[:, 1:] = (x[:, 1:] - x[:, 1:].mean(axis=0)) / x[:, 1:].std(axis=0)
+    return (x, y, coords, data_path)
+
 def get_test2021_sub_xxx_10(xxx, nx=11):
     depVarName = 'Y_new'
     indVarNames = 'X0, X1, X2, X3, X4, X5, X6, X7, X8, X9'.split(", ")
