@@ -597,7 +597,6 @@ class MGWR(object):
 
         ### get influence, std of residuals, cook's distance
         ### influ is diagonal of S matrix, ref https://buildmedia.readthedocs.org/media/pdf/mgwr/latest/mgwr.pdf
-        ### maybe different from ArcGIS PRO
         ### ref https://www.stat.cmu.edu/~cshalizi/mreg/15/lectures/20/lecture-20.pdf
         self.std_resid = self.y_resid / self.sigma / np.sqrt(1 - self.influence)
 
