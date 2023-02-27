@@ -445,9 +445,9 @@ import numpy as np
 import sys
 import matplotlib.pyplot as plt
 from line_profiler import LineProfiler
-sys.path.append(r"C:\MGWR")
-sys.path.append(r"C:\MGWR\mgwr_esri")
-sys.path.append(r"C:\MGWR\mgwr_esri\mgwr_esri")
+
+sys.path.append(os.path.dirname(os.path.dirname(__file__)))
+sys.path.append(os.path.dirname(__file__))
 
 import time
 from kernels import *
